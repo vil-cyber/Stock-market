@@ -11,6 +11,12 @@ import lombok.ToString;
 @ToString
 @Entity
 public class Stock {
+	@Id
+	private String ticker;
+	private String companyName;
+	private double price;
+	private double changes;
+	private double quantity;
 	public String getTicker() {
 		return ticker;
 	}
@@ -41,10 +47,4 @@ public class Stock {
 	public void setQuantity(double quantity) {
 		this.quantity = quantity;
 	}
-	@Id
-	private String ticker;
-	private String companyName;
-	private double price;
-	private double changes;
-	private double quantity;
 }

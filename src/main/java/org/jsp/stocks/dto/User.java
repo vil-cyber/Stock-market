@@ -1,11 +1,16 @@
 package org.jsp.stocks.dto;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Transient;
 import jakarta.validation.constraints.DecimalMax;
 import jakarta.validation.constraints.DecimalMin;
@@ -23,7 +28,8 @@ import lombok.ToString;
 @Setter
 @ToString
 @Entity
-public class User {@Id
+public class User {
+	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	@Size(min = 3, max = 15, message = "* It Should be between 3~15 charecters")
@@ -44,8 +50,12 @@ public class User {@Id
 	private String confirmPassword;
 	private int otp;
 	private boolean verified;
-	
+
 	private double amount;
+
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	List<UserStocksTransaction> transactions=new ArrayList<>();
+
 	public int getId() {
 		return id;
 	}
@@ -126,5 +136,11 @@ public class User {@Id
 		this.amount = amount;
 	}
 
-	
+	public List<UserStocksTransaction> getTransactions() {
+		return transactions;
+	}
+
+	public void setTransactions(List<UserStocksTransaction> transactions) {
+		this.transactions = transactions;
+	}
 }
