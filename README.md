@@ -18,7 +18,7 @@ User Features Registration: Users can register by entering their details. OTP ve
 
 Installation Prerequisites Java (JDK 17 or higher) Maven for dependency management MySQL database Razorpay API Key (for wallet recharge functionality) Alpha Vantage API Key (for fetching stock details) Email API key (for OTP email verification)
 
-Steps Clone the repository: git clone https://github.com/saishkulkarni/stock-market-springboot-thymeleaf.git
+Steps Clone the repository: git clone https://github.com/vil-cyber/Stock-market.git
 
 Set up the MySQL Database: Create a new database for the application. Update the application.properties file with your MySQL database credentials.
 
